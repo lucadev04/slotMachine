@@ -9,11 +9,12 @@ def main():
             exit()
         slotQuery = input(f"Do you want to play(1 coin per throw)? You have {coins} coins(y/n)")
         if slotQuery == "y":
+            emojiList = ["🤠", "💀", "💩", "🤡", "👽", "👾", "💥", "🦫", "🐧", "🍆"]
             for n in range(100):
-                randNum = rd.randint(1, 10)
-                randNum2 = rd.randint(1, 10)
-                randNum3 = rd.randint(1, 10)
-                print(f"\r[ {randNum} | {randNum2} | {randNum3} ]  ", end="", flush=True)
+                randNum = rd.randint(0, 9)
+                randNum2 = rd.randint(0, 9)
+                randNum3 = rd.randint(0, 9)
+                print(f"\r[ {emojiList[randNum]} | {emojiList[randNum2]} | {emojiList[randNum3]} ]  ", end="", flush=True)
                 time.sleep(0.01+n/600)
             print("\n")
             randNums = [randNum, randNum2, randNum3]
