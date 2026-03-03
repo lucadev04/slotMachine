@@ -7,8 +7,9 @@ def main():
         if coins == 0:
             print("You lost all your money, haha")
             exit()
-        slotQuery = input(f"Do you want to play(1 coin per throw)? You have {coins} coins(y/n)")
-        if slotQuery == "y":
+
+        slotQuery = input(f"Do you want to play(1 coin per throw)? You have {coins} coins(y/n)[y] ").strip().lower()
+        if slotQuery == "" or slotQuery == "y":
             emojiList = ["🤠", "💀", "💩", "🤡", "👽", "👾", "💥", "🦫", "🐧", "🍆"]
             print("╔--------------------╗")
             print("|    \033[91m*     *    *\033[0m    |")
@@ -17,13 +18,15 @@ def main():
                 randNum2 = rd.randint(0, 9)
                 randNum3 = rd.randint(0, 9)
                 print(f"\r|  [ {emojiList[randNum]} | {emojiList[randNum2]} | {emojiList[randNum3]} ]  | ", end="", flush=True)
-                time.sleep(0.01+n/600)
-            print("\n")
+                time.sleep(0.01 + n/600)
+
+            print("\n╚--------------------╝")
             randNums = [randNum, randNum2, randNum3]
             randNums_sorted = sorted(randNums)
-            if randNum+randNum2+randNum3 == 27:
+
+            if randNum + randNum2 + randNum3 == 27:
                 coins += 1000
-                print("Hot Ding Dong!🍆")
+                print("Hot Ding Dong! 🍆")
             elif randNums_sorted[0] == randNums_sorted[1] == randNums_sorted[2]:
                 coins += 100
                 print("You won (three equal slots)")
@@ -38,7 +41,6 @@ def main():
             exit()
         else:
             print("You must put in y or n, lol")
-
 
 if __name__ == "__main__":
     try:
