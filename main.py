@@ -19,11 +19,15 @@ def main():
             print("\n")
             randNums = [randNum, randNum2, randNum3]
             randNums_sorted = sorted(randNums)
+            if randNum+randNum2+randNum3 == 27:
+                coins += 1000
+                print("Hot Ding Dong!🍆")
+
             if randNums_sorted[0] == randNums_sorted[1] == randNums_sorted[2]:
                 coins += 100
                 print("You won (three equal slots)")
             elif randNums_sorted[0] == randNums_sorted[1] or randNums_sorted[1] == randNums_sorted[2]:
-                coins += 50
+                coins += 10
                 print("You won half (two equal slots)")
             else:
                 coins -= 1
