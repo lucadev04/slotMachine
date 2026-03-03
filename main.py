@@ -8,8 +8,14 @@ def main():
             print("You lost all your money, haha")
             exit()
 
-        slotQuery = input(f"Do you want to play(5 coins per throw)? You have {coins} coins(y/n)[y] ").strip().lower()
+        slotQuery = input(f"Do you want to play? You have {coins} coins(y/n)[y] ").strip().lower()
         if slotQuery == "" or slotQuery == "y":
+            try:
+                betAmount = int(input(f"How much do you want to bet?"))
+            except ValueError:
+                print("You must put a number in")
+                continue
+
             emojiList = ["🤠", "💀", "💩", "🤡", "👽", "👾", "💥", "🦫", "🐧", "🍆"]
             print("╔--------------------╗")
             print("|    \033[91m*     *    *\033[0m    |")
@@ -25,22 +31,22 @@ def main():
             randNums_sorted = sorted(randNums)
 
             if randNum + randNum2 + randNum3 == 27:
-                coins += 1000
+                coins += betAmount *3
                 print("Hot Ding Dong! 🍆")
             elif randNums_sorted[0] == randNums_sorted[1] == randNums_sorted[2]:
-                coins += 100
+                coins += betAmount * 2
                 print("You won (three equal slots)")
             elif randNums_sorted[0] == randNums_sorted[1] or randNums_sorted[1] == randNums_sorted[2]:
-                coins += 10
+                coins += betAmount / 2
                 print("You won half (two equal slots)")
             else:
-                coins -= 5
+                coins -= betAmount
                 print("You lost")
         elif slotQuery == "n":
             print("Good bye")
             exit()
         else:
-            print("You must put in y or n, lol")
+            print("You must put in y/enter or n, lol")
 
 if __name__ == "__main__":
     try:
