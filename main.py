@@ -8,7 +8,7 @@ def main():
             print("You lost all your money, haha")
             exit()
 
-        slotQuery = input(f"Do you want to play(1 coin per throw)? You have {coins} coins(y/n)[y] ").strip().lower()
+        slotQuery = input(f"Do you want to play(5 coins per throw)? You have {coins} coins(y/n)[y] ").strip().lower()
         if slotQuery == "" or slotQuery == "y":
             emojiList = ["🤠", "💀", "💩", "🤡", "👽", "👾", "💥", "🦫", "🐧", "🍆"]
             print("╔--------------------╗")
@@ -34,7 +34,7 @@ def main():
                 coins += 10
                 print("You won half (two equal slots)")
             else:
-                coins -= 1
+                coins -= 5
                 print("You lost")
         elif slotQuery == "n":
             print("Good bye")
