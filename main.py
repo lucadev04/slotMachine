@@ -2,16 +2,19 @@ import random as rd
 import time
 
 def main():
-    coins = 100
+    coins = int(100)
     while True:
-        if coins == 0:
+        if coins <= 0:
             print("You lost all your money, haha")
             exit()
 
-        slotQuery = input(f"Do you want to play? You have {coins} coins(y/n)[y] ").strip().lower()
+        slotQuery = input(f"Do you want to play? You have {int(coins)} coins(y/n)[y] ").strip().lower()
         if slotQuery == "" or slotQuery == "y":
             try:
                 betAmount = int(input(f"How much do you want to bet?"))
+                if betAmount > coins:
+                    print("You can't bet more then you have, fucking cheater")
+                    continue
             except ValueError:
                 print("You must put a number in")
                 continue
