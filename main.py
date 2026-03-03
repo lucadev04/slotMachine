@@ -20,6 +20,7 @@ def main():
                 continue
 
             emojiList = ["🤠", "💀", "💩", "🤡", "👽", "👾", "💥", "🦫", "🐧", "🍆"]
+
             for n in range(100):
                 randNum = rd.randint(0, 9)
                 randNum2 = rd.randint(0, 9)
@@ -32,10 +33,10 @@ def main():
             randNums_sorted = sorted(randNums)
 
             if randNum + randNum2 + randNum3 == 27:
-                coins += betAmount *3
+                coins += betAmount * 100
                 print("Hot Ding Dong! 🍆")
             elif randNums_sorted[0] == randNums_sorted[1] == randNums_sorted[2]:
-                coins += betAmount * 2
+                coins += betAmount * 5
                 print("You won (three equal slots)")
             elif randNums_sorted[0] == randNums_sorted[1] or randNums_sorted[1] == randNums_sorted[2]:
                 coins += betAmount / 2
