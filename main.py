@@ -21,10 +21,10 @@ def main():
             randNums_sorted = sorted(randNums)
             if randNums_sorted[0] == randNums_sorted[1] == randNums_sorted[2]:
                 coins += 100
-                print("You won (three equal numbers)")
+                print("You won (three equal slots)")
             elif randNums_sorted[0] == randNums_sorted[1] or randNums_sorted[1] == randNums_sorted[2]:
                 coins += 50
-                print("You won half (two equal numbers)")
+                print("You won half (two equal slots)")
             else:
                 coins -= 1
                 print("You lost")
