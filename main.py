@@ -25,10 +25,8 @@ def main():
                 randNum2 = rd.randint(0, 9)
                 randNum3 = rd.randint(0, 9)
                 print(f"\r╔--------------------╗\n|    \033[91m*     *    *\033[0m    |\n|  [ {emojiList[randNum]} | {emojiList[randNum2]} | {emojiList[randNum3]} ]  |\n╚--------------------╝", end="")
-                print("\033[3A", end="")  # Cursor 3 Zeilen nach oben (für die Rahmenhöhe)
+                print("\033[3A", end="") 
                 time.sleep(0.01 + n/600)
-
-            # Nach der Schleife: Rahmen und Ergebnis anzeigen
             print(f"\r╔--------------------╗\n|    \033[91m*     *    *\033[0m    |\n|  [ {emojiList[randNum]} | {emojiList[randNum2]} | {emojiList[randNum3]} ]  |\n╚--------------------╝")
             randNums = [randNum, randNum2, randNum3]
             randNums_sorted = sorted(randNums)
