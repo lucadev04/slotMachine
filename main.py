@@ -10,11 +10,13 @@ def main():
         slotQuery = input(f"Do you want to play(1 coin per throw)? You have {coins} coins(y/n)")
         if slotQuery == "y":
             emojiList = ["🤠", "💀", "💩", "🤡", "👽", "👾", "💥", "🦫", "🐧", "🍆"]
+            print("╔--------------------╗")
+            print("|    \033[91m*     *    *\033[0m    |")
             for n in range(100):
                 randNum = rd.randint(0, 9)
                 randNum2 = rd.randint(0, 9)
                 randNum3 = rd.randint(0, 9)
-                print(f"\r[ {emojiList[randNum]} | {emojiList[randNum2]} | {emojiList[randNum3]} ]  ", end="", flush=True)
+                print(f"\r|  [ {emojiList[randNum]} | {emojiList[randNum2]} | {emojiList[randNum3]} ]  | ", end="", flush=True)
                 time.sleep(0.01+n/600)
             print("\n")
             randNums = [randNum, randNum2, randNum3]
@@ -22,8 +24,7 @@ def main():
             if randNum+randNum2+randNum3 == 27:
                 coins += 1000
                 print("Hot Ding Dong!🍆")
-
-            if randNums_sorted[0] == randNums_sorted[1] == randNums_sorted[2]:
+            elif randNums_sorted[0] == randNums_sorted[1] == randNums_sorted[2]:
                 coins += 100
                 print("You won (three equal slots)")
             elif randNums_sorted[0] == randNums_sorted[1] or randNums_sorted[1] == randNums_sorted[2]:
@@ -40,4 +41,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\nGood bye")
